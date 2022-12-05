@@ -1114,8 +1114,8 @@ toutes les publications à afficher.
 ## Conclusion
 
 Nous avons un début de site fonctionnel nous permettant d'ajouter et de lister différentes publications!
-Dans le prochain TD, nous verrons comment mieux organiser tout cela et ajouter de nouvelles fonctionnalités. 
-Nous améliorerons aussi la **sécruité** de **The Feed**.
+Dans le prochain TD, nous verrons comment mieux organiser tout cela en créant notre **propre framework**. 
+Nous améliorerons aussi la **sécurité** de **The Feed**.
 
 En parlant de sécurité...à ce stade, votre application est vulnérable à différentes attaques, notamment au niveau de l'itnéraction avec la base de données.
 Vous pouvez aussi essayer d'ajouter des feedy contenant une quote **'**, vous devriez obtenir un beau message d'erreur...
