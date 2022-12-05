@@ -1,0 +1,107 @@
+/* Mise en page générale */
+
+body {
+    background-color: #e6ecf0;
+    margin:0;
+}
+
+main {
+    font-family: Arial, serif;
+}
+
+header {
+    background-color: #494949;
+    position: relative;
+    height: 100px;
+}
+
+#titre {
+    font-size: 50px;
+    font-family: helvetica, serif;
+    color: white;
+}
+
+#titre a:link, #titre a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+#feedy-new textarea {
+    width: 100%;
+    height: 75px;
+    resize: none;
+    font-size: 15px;
+}
+
+#feedy-new {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+#feedy-new-submit {
+    margin: 5px 0;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#feed {
+    margin: auto;
+    max-width: 700px;
+}
+
+/* Feedy */
+
+.avatar {
+    border-radius:100px;
+    width:48px;
+}
+
+.feedy .avatar {
+    margin-right: 15px;
+}
+
+.feedy {
+    background: #fff;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid black;
+}
+
+.feedy:hover {
+    box-shadow: 0 0 5px 0;
+    cursor: pointer;
+}
+
+.feedy img {
+    max-width:100%;
+}
+
+.feedy-header {
+    display: flex;
+    align-items:flex-start;
+    font-size:15px;
+}
+.feedy-info {
+    font-weight:bold;
+}
+.feedy-info span {
+    color:#657786;
+    font-weight:normal;
+    margin-left: 5px;
+}
+.feedy-info p {
+    font-weight:normal;
+    margin-top: 5px;
+}
