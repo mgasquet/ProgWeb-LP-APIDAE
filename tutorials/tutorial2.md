@@ -889,13 +889,13 @@ Le fonctionnement de ce composant est assez simple :
    $routes = new RouteCollection();
 
    $firstRoute = new Route("/hello", [
-      "_controller" => "MyApp\\Application\\HelloController:hello" //Le _ devant "controller" est important.
+      "_controller" => "MyApp\\Application\\HelloController::hello" //Le _ devant "controller" est important.
    ]);
 
    $routes->add('hello_world', $firstRoute);
 
    $secondRoute = new Route("/products/{id}", [
-      "_controller" => "MyApp\\Application\\ProductController:details" //La fonction "details" doit avoir un paramètre $id!
+      "_controller" => "MyApp\\Application\\ProductController::details" //La fonction "details" doit avoir un paramètre $id!
       "id" => 0 // Valeur par défaut...non obligatoire!
    ]);
 
@@ -1034,7 +1034,7 @@ Bien, vous avez maintenant de quoi traiter la requête! Il ne reste plus qu'à r
 
       * [http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD2/infos/personne?nom=smith&prenom=john](http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD2/addition/infos/personne?nom=smith&prenom=john)
 
-   9. Comprenez-vous comment et pourquoi vous obtenez ces résultats (notamment pour la dernière question). Si oui, passez àa la suite, si non, appellez votre chargé de TD. Essayez de retracer les étapes effectuées à partir de la reception de la requête jusqu'à l'envoi de la réponse.
+   9. Comprenez-vous comment et pourquoi vous obtenez ces résultats (notamment pour la dernière question). Si oui, passez à la suite, si non, appellez votre chargé de TD. Essayez de retracer les étapes effectuées à partir de la reception de la requête jusqu'à l'envoi de la réponse.
 
    10. Comprenez vous la différence entre le **query string** (comme dans le troisième exemple de test de route de la question 8) et le **passage de paramètres via l'URL d'une route**?
 
@@ -1061,12 +1061,12 @@ Si on souhaite éxécuter deux actions différentes pour deux méthodes différe
 
 ```php
 $firstRoute = new Route("/test", [
-   "_controller" => "MyApp\\Application\\HelloController:bonjourGet"
+   "_controller" => "MyApp\\Application\\HelloController::bonjourGet"
 ]);
 $firstRoute->setMethods(["GET"]);
 
 $secondRoute = new Route("/test", [
-   "_controller" => "MyApp\\Application\\HelloController:bonjourPost"
+   "_controller" => "MyApp\\Application\\HelloController::bonjourPost"
 ]);
 $secondRoute->setMethods(["POST"]);
 ```
