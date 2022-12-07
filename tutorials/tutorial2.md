@@ -467,7 +467,7 @@ Pour générer le résultat obtenu via un **template** Twig, il faut éxécuter 
 $page = $twig->render(sousCheminTemplate, tableauAssociatif);
 
 //Puis, pour l'afficher comme réponse
-sprintf($page)
+echo $page
 ```
 
 Par exemple, si je veux charger le fichier `personne.html.twig` situé à la racine du dossier `templates` en lui passant un objet Personne en paramètre, je peux faire :
@@ -476,7 +476,7 @@ Par exemple, si je veux charger le fichier `personne.html.twig` situé à la rac
 $personne = ...
 
 $page = $twig->render('personne.html.twig', ["personne" => $personne]);
-sprintf($page)
+echo $page
 ```
 
 Bien sûr, on peut passer plusieurs paramètres (il suffit de les ajouter au tableau associatif).
@@ -534,7 +534,7 @@ Bien sûr, on peut passer plusieurs paramètres (il suffit de les ajouter au tab
    ```
 3. Adaptez ce code pour utiliser le langage de `Twig` à la place, en remplaçant toutes les parties PHP. Vous pouvez considérer qu'un tableau nommé `publications` est passé en paramètre à ce template. 
 
-4. Dans `feed.php` récupérez la page généré par `Twig` en utilisant ce template en passant en paramètres les `publications` récupérées depuis le repository. Affichez cette page avec `sprintf`.
+4. Dans `feed.php` récupérez la page généré par `Twig` en utilisant ce template en passant en paramètres les `publications` récupérées depuis le repository. Affichez cette page avec `echo`.
 
 5. Rechargez la page et observez qu'elle s'affiche toujours bien, mais cette fois, en étant générée par `Twig`!
 
@@ -719,6 +719,13 @@ Tout cela peut se faire à l'aide d'un fichier `.htaccess`. Ce fichier permet de
 3. Ouvrez-le et consulter son contenu. Essayez de comprendre ce qu'il fait, dans les grandes lignes.
 
 4. Maintenant, essayez d'accèder à votre application sans préciser `app.php` dans l'URL. Cela devrait fonctionner!
+
+5. Si cela ne marche pas (avec une erreur, ce qui semble arriver sur les serveurs de l'IUT...) supprimez le fichier `.htaccess` et créez un fichier `index.php` dans le dossier `web` contenant le code suivant :
+
+   ```php
+   <?php
+   require_once('app.php');
+   ```
 
 </div>
 

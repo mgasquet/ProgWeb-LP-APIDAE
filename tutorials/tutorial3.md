@@ -1135,7 +1135,7 @@ Nous allons commencer par créer plusieurs dossiers (un peu chaque environnement
 
 Cela à l'air de fonctionner...mais encore une fois le css et les images ne sont pas chargés! Sauriez-vous dire pourquoi?
 
-En fait, maintenant que nous chargeons la page à partir de `/app_dev.php` et pas `/` (souvenez-vous, nous avons créé le `.htaccess` pour ne pas avoir le `/app.php` dans la barre de recherche), le dossier `assets` est situé un cran plus haut...Il faudrait donc adapter la fonction `assets` de l'extension `twig` pour prendre en compte le fait que nous sommes dans un autre envrionnement.
+En fait, maintenant que nous chargeons la page à partir de `/app_dev.php` et pas `/` (souvenez-vous, nous avons créé le `.htaccess` pour ne pas avoir le `/app.php` dans la barre de recherche, ou alors vous avez fait une manipulation similaire avec `index.php`...), le dossier `assets` est situé un cran plus haut...Il faudrait donc adapter la fonction `assets` de l'extension `twig` pour prendre en compte le fait que nous sommes dans un autre envrionnement.
 
 ### Les paramètres du conteneur de services
 
