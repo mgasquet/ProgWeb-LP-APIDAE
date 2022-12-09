@@ -831,7 +831,7 @@ Dans les fonctions définies dans votre **controller**, il faudra renvoyer un ob
 
 <div class="exercise">
 
-   1. Dans le répertoire `src/Application` créez un **controller** nommé `TestController`. Donnez-lui le `namespace` adéquat.
+   1. Dans le répertoire `src/Application` créez un **controller** (une **classe**) nommé `TestController`. Donnez-lui le `namespace` adéquat.
 
    2. Importez la classe `Response` :
 
