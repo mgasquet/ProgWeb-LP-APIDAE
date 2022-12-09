@@ -384,7 +384,7 @@ On peut également entegistrer des **paramètres** (variables globales) dans le 
 $container->setParameter('param_one', "hello");
 ```
 
-Maintenant, quelquechose d'un peu plus avancé :
+Maintenant, quelque chose d'un peu plus avancé :
 
 ```php
 $serviceReference = $container->register('service_third', MyServiceThird::class)
@@ -444,7 +444,7 @@ Maintenant que nous disposons d'un containeur de services nous allons pouvoir en
 
 2. Adaptez le code pour enregistrer `Twig` comme service au lieu de l'instancier directement. Pour cela il vous faut :
 
-   * Initialiser le `$twigLoader` (`FilesystemLoader`) en précisant où se trouvetn les templates. Ce dossier ce situe maintenant dans `__DIR__."/View"`.
+   * Initialiser le `$twigLoader` (`FilesystemLoader`) en précisant où se trouvent les templates. Ce dossier ce situe maintenant dans `__DIR__."/View"`.
 
    * Enregistrer le service `twig` en utilisant la classe `Environment` de twig.
 
@@ -1129,7 +1129,7 @@ Nous allons commencer par créer plusieurs dossiers (un peu chaque environnement
 
 6. Dans le dossier `web` créez un fichier `app_dev.php`. Copiez-y le contenu de `app.php` mais changez la classe de configuration utilisée pour `ConfigurationDevelopment`.
 
-7. Accèdez à l'adresse suivante (en changeant avec votre login dans la route, bien sûr) : [http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/app_dev.php](http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/app_dev.php).
+7. Accèdez à l'adresse suivante (en changeant avec votre login dans la route, bien sûr) : [http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/web/app_dev.php](http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/web/app_dev.php).
 
 </div>
 
