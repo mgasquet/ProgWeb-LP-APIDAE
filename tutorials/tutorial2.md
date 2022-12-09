@@ -720,6 +720,8 @@ Tout cela peut se faire à l'aide d'un fichier `.htaccess`. Ce fichier permet de
 
 4. Maintenant, essayez d'accèder à votre application sans préciser `app.php` dans l'URL. Cela devrait fonctionner!
 
+</div>
+
 ### Sources de l'application et autoloading
 
 Plus tôt, nous avons parlé du sytème de chargement des **classes** à partir de leur **namespace**, grâce au mécansime d'**autoloading**. Nous aimerions mettre en place ce même système pour les futures classes de notre application **The Feed**.
