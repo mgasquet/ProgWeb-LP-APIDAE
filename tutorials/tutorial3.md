@@ -954,8 +954,10 @@ class ConfigurationGlobal
     const routes = [
         "routeName" => [
             "path" => "...",
-            "controller" => "controller_service_name",
-            "function" => "...",
+            "parameters" => [
+               "_controller" => "controller_service_name:function",
+               "..." => "...",
+            ]
             "methods" => ["...", "..."]
         ],
     ];
@@ -982,11 +984,9 @@ Quelques commentaires :
 
       * `path` : Le chemin de la route.
 
-      * `controller` : Le nom de service du controller à appeller.
+      * `parameters` : Les divers paramètres comme notamment le nom de service du controller et de sa fonction à appeller et divers autres paramètres (pour spécifier les valeurs par défauts des éventuels paramètres dans le chemin de la route, si nécessaire).
 
-      * `function` : Le nom de la méthode à appeller dans le controller.
-
-      * `methods` : La liste des méthodes HTTP autorisées quand on utilise cette route (GET, POST, ...)
+      * `methods` : La liste des méthodes HTTP autorisées quand on utilise cette route (`GET`, `POST`, ...)
 
    * On notera qu'on précise directement les classes en faisant `MaClasse::class` pour les reposiotries, les entités, les controllers, etc...
 
@@ -1014,7 +1014,7 @@ composer update
 
    * Les différents `controllers` (pour l'instant, seulement `publication_controller` associé à `PublicationController`...).
 
-   * Les différentes `routes` avec les paramètres nécessaires (il y a deux routes..!)
+   * Les différentes `routes` avec les paramètres nécessaires (il y a deux routes pour le moment..!)
 
 </div>
 
