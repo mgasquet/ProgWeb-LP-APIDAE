@@ -543,7 +543,7 @@ Le `$args` désigne un tableau associatif que l'on peut préciser si la route à
 
 <div class="exercise">
 
-1. Dans la fonction `initializeApplication` de `TheFeed` enregistrez un nouveau service nommé `url_generator` qui sera paramétré avec la classe `URLGenerator`. Tout comme un `URLMatcher`, `URLGenerator` doit être paramétré avec un `RequestContext`. Précisez donc cet arhumets lors de l'enregistrement du service en faisant référence au service `context` enregistré plus tôt.
+1. Dans la fonction `initializeApplication` de `TheFeed` enregistrez un nouveau service nommé `url_generator` qui sera paramétré avec la classe `URLGenerator`. Tout comme un `URLMatcher`, `URLGenerator` doit être paramétré avec les `routes` et un `RequestContext`. Précisez donc cet arhumets lors de l'enregistrement du service en faisant référence au service `context` enregistré plus tôt.
 
 2. Créez une méthode `redirectToRoute` dans la classe `Controller` qui prend deux paramètres : le nom de la route `$routeName` et les éventuels arguments `$arguments`. Le paramètre `$arguments` devra avoir la valeur par défaut `[]` (tableau vide). Pour cela, il suffit de préciser `$arguments = []` dans la déclaration de la fonction. Cela permet de ne pas avoir à préciser ce paramètre s'il ny a pas de paramètres à transmettre à la route.
 
