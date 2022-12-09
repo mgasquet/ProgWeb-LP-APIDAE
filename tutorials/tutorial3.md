@@ -1181,6 +1181,8 @@ Nous allons adapter nos `configurations` et ntore extension `Twig` pour prendre 
 
 ### Sécurisation de l'environnement de développement
 
+**Attention, à priori, cet exercice n'est pas réalisable à l'iut**. En effet, il se base sur des restrictions IPs qui ne seront pas appliquables à l'IUT car le serveur ne tourne pas sur votre machine. Mais vous pouvez quand même le lire pour utiliser cette méthode dans vos futurs projets.
+
 Très bien, notre environnement de développement est fonctionnel...Mais à ce stade, tout le monde peut s'y connecter (essayez avec vos collègues s'ils en sont là...) et ce n'est as souhaitable! Heureusement, il est possible de filtrer les IPs qui se connectent à un environnement via son point d'entrée. Nous allons donc seulement autoriser l'IP locale (`127.0.0.1`) à accèder à notre nouvel environnement.
 
 <div class="exercise">
