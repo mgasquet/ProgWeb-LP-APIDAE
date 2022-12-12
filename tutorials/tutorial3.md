@@ -648,27 +648,19 @@ Nous allons maintenant créer un `repository manager` concret permettant gérer 
 
 </div>
 
-### Retour du repository des publications
+### Mise à jour du repository des publications
 
 Nous allons doucement commencer à mettre à niveau ce que nous avions produit pour l'application `The Feed`. 
 
-<div class="exercise">
-
-1. Copiez votre ancienne classe `PublicationRepositorySQL` dans le dossier `src/Storage/SQL`. 
-
-2. Donnez-lui le bon `namespace` et faites-la implémenter l'interface `Repository` (mot clé `implements`). Il ne devrait rien y avoir à changer car votre classe implémente déjà toutes les méthodes nécessaires!
-
-</div>
-
-### Ajout du manager SQL dans le conteneur de services
-
-Nous allons maitnenant ajouter notre `RepositoryManagerMySQL` comme un `service` dans le conteneur et nous allons aussi enregistrer le `PublicationRepositorySQL` comme repository gérant l"entité `Publication`.
+Pour débuter, notre `RepositoryManagerMySQL` va être enregistré comme un `service` dans le conteneur et nous allons aussi enregistrer le `PublicationRepositorySQL` comme repository gérant l"entité `Publication`.
 
 <div class="exercise">
 
-1. Dans la méthode `initializeApplication` de la classe `TheFeed`, enregistrer le service `repository_manager` en utilisant comme classe concrète `RepositoryManagerMySQL`. Il faudra que le conteneur de service injecte le tableau contenant les paramètres de connexion à la base de données dans ce service. Vous pouvez pour cela reprendre le tableau que vous aviez défini dans l'ancien fichier `Conf.php` (prenez directement le tableau et utilisez le dans la fonction, n'utilisez pas de fichier annexe comme avant).
+1. Faites implémenter à votre classe `PublicationRepositorySQL` l'interface `Repository` (mot clé `implements`). Il ne devrait rien y avoir à changer car votre classe implémente déjà toutes les méthodes nécessaires!
 
-2. En utilisant la méthode `addMethodCall`, faites en sorte que la méthode `registerRepository` soit appellée lors de l'initilisation du service en utilisant comme paramètre `Publication::class` et `PublicationRepositorySQL::class`. Cela aura pour effet de créer l'association entre l'entité et ce repository quand le manager sera initialisé par le conteneur. Ainsi, plus tard, si on souhaite accèder à ce repository, on fera :
+2. Dans la méthode `initializeApplication` de la classe `TheFeed`, enregistrer le service `repository_manager` en utilisant comme classe concrète `RepositoryManagerMySQL`. Il faudra que le conteneur de service injecte le tableau contenant les paramètres de connexion à la base de données dans ce service. Vous pouvez pour cela reprendre le tableau que vous aviez défini dans l'ancien fichier `Conf.php` (prenez directement le tableau et utilisez le dans la fonction, n'utilisez pas de fichier annexe comme avant).
+
+3. En utilisant la méthode `addMethodCall`, faites en sorte que la méthode `registerRepository` soit appellée lors de l'initilisation du service en utilisant comme paramètre `Publication::class` et `PublicationRepositorySQL::class`. Cela aura pour effet de créer l'association entre l'entité et ce repository quand le manager sera initialisé par le conteneur. Ainsi, plus tard, si on souhaite accèder à ce repository, on fera :
 
    ```php
    $repository = $repositoryManager->getRepository(Publication::class);
