@@ -1,0 +1,234 @@
+/* Mise en page générale */
+
+body {
+    background-color: #e6ecf0;
+    margin:0;
+}
+
+main {
+    font-family: Arial, serif;
+}
+
+header {
+    background-color: #494949;
+    position: relative;
+    height: 100px;
+}
+
+#titre {
+    font-size: 50px;
+    font-family: helvetica, serif;
+    color: white;
+}
+
+#titre a:link, #titre a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+#feedy-new textarea {
+    width: 100%;
+    height: 75px;
+    resize: none;
+    font-size: 15px;
+}
+
+#feedy-new {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+#feedy-new-submit {
+    margin: 5px 0;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.center {
+    vertical-align: center;
+    margin: auto;
+    text-align: center;
+}
+
+#feed {
+    margin: auto;
+    max-width: 700px;
+}
+
+/* Feedy */
+
+.avatar {
+    border-radius:100px;
+    width:48px;
+}
+
+.feedy .avatar {
+    margin-right: 15px;
+}
+
+.feedy {
+    background: #fff;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid black;
+    position: relative;
+}
+
+.feedy:hover {
+    box-shadow: 0 0 5px 0;
+    cursor: pointer;
+}
+
+.feedy-header {
+    display: flex;
+    align-items:flex-start;
+    font-size:15px;
+}
+.feedy-info {
+    font-weight:bold;
+}
+
+.feedy-info p {
+    word-break: break-all;
+}
+
+.feedy-info span {
+    color:#657786;
+    font-weight:normal;
+}
+.feedy-info p {
+    font-weight:normal;
+    margin-top: 10px;
+}
+
+.error-block {
+    width: 50%;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid mediumvioletred;
+    padding: 20px 40px;
+    background-color: orangered;
+}
+
+#error-block-container {
+    margin-top: 50px;
+}
+
+#interrogation {
+    width: 100px;
+}
+
+#form-access {
+    width: 50%;
+}
+
+#form-access label, #form-access input, #form-access legend  {
+    font-size: 25px;
+}
+
+#form-access label, #form-access input {
+    display: block;
+}
+
+#access-submit {
+    margin: auto;
+}
+
+.access-container input {
+    width: 100%;
+}
+
+#form-access {
+    margin-top: 50px;
+}
+
+#form-access label {
+    text-align: left;
+}
+
+.access-container {
+    margin-bottom: 20px;
+}
+
+.access-container label {
+    margin: 5px 0;
+}
+
+nav {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+}
+
+nav a {
+    margin: 0 10px;
+}
+
+#flashes-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 700px;
+    animation:flashes-animation 5s 1;
+    -webkit-animation:flashes-animation 5s 1;
+    animation-fill-mode: forwards;
+    animation-delay:3s;
+    -webkit-animation-delay:1s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.flashes {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 20px 40px;
+    margin: 10px 0;
+}
+
+@-webkit-keyframes flashes-animation {
+    0%   {opacity: 1;position: inherit;}
+    50% {opacity: 1;position: inherit;}
+    90% {opacity: 0;position: inherit;}
+    100% {opacity: 0;position: absolute;}
+}
+
+.flashes-error {
+    background-color: orangered;
+    border: 2px solid mediumvioletred;
+}
+
+.flashes-success {
+    background-color: lightgreen;
+    border: 2px solid #344c32;
+}
+
+#no-publications {
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 100px;
+}
+
+.help-input-form {
+    text-align: left;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.delete-feedy {
+    position: absolute;
+    right: 15px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+#btn-supprimer-compte {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    margin : 20px 0;
+}

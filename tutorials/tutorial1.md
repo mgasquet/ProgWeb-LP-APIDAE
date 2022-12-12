@@ -846,7 +846,7 @@ Le login est votre login IUT et votre mot de passe initial votre numéro INE.
       et en mode auto-increment (case `A_I`).
    * `message` de type `TEXT`.
    * `date` de type `DATETIME`.
-   * `loginAuteur` de type `VARCHAR` d'une longueur maximum de 20.
+   * `loginAuteur` de type `VARCHAR` d'une longueur maximale de 20.
 
    **Important :** Pour faciliter la suite du TD, mettez à la création de toutes
      vos tables `InnoDB` comme moteur de stockage, et `utf8_general_ci` comme

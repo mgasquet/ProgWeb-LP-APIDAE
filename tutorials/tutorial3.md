@@ -17,7 +17,7 @@ Copiez le contenu de votre dossier `TD2` dans `TD3`.
 
 Vérifiez que l'URL suivante donne bien accès à votre site : 
 
-[http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/addition/5/10](http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/addition/5/10).
+[http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/web/addition/5/10](http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/web/addition/5/10).
 
 Attention, dorénavant, il faudra bien vérifier que `TD3` est dans l'URL! (et que vous n'êtes pas revenu sur une URL du TD2 ou du TD1 par erreur).
 
@@ -887,7 +887,7 @@ Les deux méthodes qui vont nous permettre de régler les soucis d'accès aux re
 
 1. Modifiez le template `base.html.twig` pour que celui-ci charge le fichier `styles.css` en utilisant la méthode `asset`. Pour rappel, il faut préciser le sous chemin à utiliser comme si on se trouvait déjà dans le dossier `assets`. Second rappel, pour utiliser une fonction dans un template :
 
-   ```php
+   ```twig
    {% raw %}
    {{ fonction(parametres) }}
 
@@ -1032,7 +1032,7 @@ Maintenant que votre fichier de configuration est prêt, nous allons pouvoir ré
 
 4. En combinant les paramètres `appRoot` et `views` de `ConfigurationGlobal`, construisez un chemin vers le dossier contenant les vues . Utilisez ce chemin comme paramètre d'intialisation du `twig loader`.
 
-5. bien entendu, supprimez toutes les anciennes formes d'intialisation des routes, controlelrs, etc...qui n'utilisent pas le fichier de configuration!
+5. Bien entendu, supprimez toutes les anciennes formes d'intialisation des routes, controlelrs, etc...qui n'utilisent pas le fichier de configuration!
 
 6. testez votre application et vérifiez que tout fonctionne bien.
 
@@ -1129,7 +1129,14 @@ Nous allons commencer par créer plusieurs dossiers (un peu chaque environnement
 
 6. Dans le dossier `web` créez un fichier `app_dev.php`. Copiez-y le contenu de `app.php` mais changez la classe de configuration utilisée pour `ConfigurationDevelopment`.
 
-7. Accèdez à l'adresse suivante (en changeant avec votre login dans la route, bien sûr) : [http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/web/app_dev.php](http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/web/app_dev.php).
+7. Si vous travaillez sur le serveur web de l'iut, assurez-vous qu'il dispose de tous les droits nécessaires par rapport à votre dossier `public_html` :
+
+   ```bash
+   setfacl -R -m u:www-data:r-w-x ~/public_html
+   setfacl -R -m d:u:www-data:r-w-x ~/public_html
+   ```
+
+8. Accèdez à l'adresse suivante (en changeant avec votre login dans la route, bien sûr) : [http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/web/app_dev.php](http://webinfo.iutmontp.univ-montp2.fr/~mon_login_IUT/TD3/web/app_dev.php).
 
 </div>
 
@@ -1210,17 +1217,4 @@ Très bien, notre environnement de développement est fonctionnel...Mais à ce s
 Nous avons enfin notre framework complet! Bien sûr, il a encore des défauts et beaucoup de choses pourraient être améliorées et étendues, mais il est fonctionnel et réutilisable!
 
 Dans le prochain TD, nous allons donc l'exploiter pour optimiser le développement de notre application : `The Feed`!
-
-<!--
-## Gestion des événements
-
-### Evenement pour la gestion d'erreurs
-
-### Listener pour customiser les pages d'erreurs
-
-### Modification du framework
-
-### Templates twig pour les erreurs de l'application
--->
-
 
