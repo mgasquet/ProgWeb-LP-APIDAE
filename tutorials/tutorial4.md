@@ -786,7 +786,7 @@ Nous allons utiliser notre nouvelle `exception` pour gérer les différentes err
 
    Faites donc les modificaitons nécessaires sur cette méthode.
 
-2. Appliquez la même logique pour `getUtilisateurByLogin` dans `UtilisateurService` puis `getPublication` dans `PublicationService`.
+2. Appliquez la même logique pour `getUtilisateurByLogin` dans `UtilisateurService`.
 
 3. Pour `createNewPublication` dans `PublicationService` il faut lever une `ServiceException` si le message est vide ou dépassé 250 caractères (avec un message que vous choissirez). Vous pouvez utiliser la méthode `strlen` pour obtenir la taille d'une chaîne de caractères. Une exception doit aussi être levée si l'utilisateur n'existe pas...Pour cela vous pouvez habillement utiliser le paramètre que nous avons mis en place dans les questions précédentes.
 
