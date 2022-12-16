@@ -241,8 +241,7 @@ Maintenant, il faut créer l'action d'inscription du côté `back-end`!
    Le nouveau nom du fichier sera un identifiant unique. Pour faire cela, `PHP` nous met à disposition une fonction toute prête :
 
    ```php
-   //Augmente le caractère unique de la chaîne généré
-   $identifiant = uniqid(null, true)
+   $identifiant = uniqid()
    ```
 
    L'unicité de cette valeur se base sur l'horloge système, il ne faut donc pas l'utiliser dans un contexte où on osuhaite générer quelquechose de sécurisé et unique au monde. Dans notre contexte, cela ira très bien.
