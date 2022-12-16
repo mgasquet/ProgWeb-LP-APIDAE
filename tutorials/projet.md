@@ -100,6 +100,6 @@ Sur **Moodle**, un seul membre du trinôme dépose une archive **zip** nommée s
 
 ## Aide et accompagnement
 
-Pour vous aider, vous pouvez partir de la [correction finale des TPs]({{site.baseurl}}/assets/projet/correction_finale.zip) qui contient les sources du `framework` et de l'application tel qu'ils devraient être à la fin du cinquième TP.
+Pour vous aider, vous pouvez partir de la [correction finale des TPs]({{site.baseurl}}/assets/projet/correction_finale.zip) qui contient les sources du `framework` et de l'application tel qu'ils devraient être à la fin du cinquième TP. Il y a aussi un fichier `database_strucure.sql` que vous pouvez charger dans une base de données `MySQL` pour avoir la structure finale de la base.
 
 Pour toute question, vous pouvez me contacter ici : [malo.gasquet@umontpellier.fr](mailto:malo.gasquet@umontpellier.fr)
