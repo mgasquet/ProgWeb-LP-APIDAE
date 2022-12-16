@@ -67,11 +67,18 @@ Bref, vous êtes totalement libre sur le choix du thème. Veillez juste à ce qu
 
 ## Rendu
 
-Le rendu devra se faire au plus tard le **1er mars** sous deux formes : Hebergement du site et dépôt sur Moodle.
+Le rendu devra se faire au plus tard le *(date à définir!)* sous deux formes : Hebergement du site et dépôt sur Moodle.
 
 ### Hebergement du site
 
 Un seul membre du trinôme hébergera le site web dans son dossier `public_html`. Il faudra bien vérifier que le site web est accessible depuis l'extérieur de l'iut sur l'adresse : [http://webinfo.iutmontp.univ-montp2.fr/~login_depot/votreprojet/web/](http://webinfo.iutmontp.univ-montp2.fr/~login_depot/votreprojet/web/).
+
+Si vous n'aviez pas fini les TPs, il ne faut pas oublier de donner les droits d'écriture au serveur de l'iut :
+
+```bash
+setfacl -R -m u:www-data:r-w-x ~/public_html
+setfacl -R -m d:u:www-data:r-w-x ~/public_html
+```
 
 ### Dépôt moodle
 
