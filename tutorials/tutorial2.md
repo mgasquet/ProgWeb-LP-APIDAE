@@ -839,11 +839,11 @@ Dans les fonctions définies dans votre **controller**, il faudra renvoyer un ob
    use Symfony\Component\HttpFoundation\Response;
    ```
 
-   2. Créez une fonction `bonjour` qui renvoie une `Response` contenant une chaîne de caractère "bonjour".
+   2. Créez une méthode `bonjour` qui renvoie une `Response` contenant une chaîne de caractère "bonjour".
 
-   3. Créez une fonction `additionneur` qui prend deux paramètres `$a` et `$b` et renvoie une `Response` contenant chaîne de caractère sous la forme "Resultat = (la somme des $a et $b)".
+   3. Créez une méthode `additionneur` qui prend deux paramètres `$a` et `$b` et renvoie une `Response` contenant chaîne de caractère sous la forme "Resultat = (la somme des $a et $b)".
 
-   4. Créez une fonction `afficheInfos` qui prend en paramètre un objet `Request $request`. Attention, **il faut bien préciser le type** (nous verrons pourquoi plus tard). Cet objet contient les données de la requête, notmament les données passées dans la requête (via GET, POST,etc...). Vous avez accès à une méthode `get` qui permet de récupérer ces données (en précisant leur nom). Faites en sorte que cette fonciton :
+   4. Créez une méthode `afficheInfos` qui prend en paramètre un objet `Request $request`. Attention, **il faut bien préciser le type** (nous verrons pourquoi plus tard). Cet objet contient les données de la requête, notmament les données passées dans la requête (via GET, POST,etc...). Vous avez accès à une méthode `get` qui permet de récupérer ces données (en précisant leur nom). Faites en sorte que cette fonciton :
 
       1. Récupère une donnée `nom` et une donnée `prenom` stockée dans les données de la requête.
 

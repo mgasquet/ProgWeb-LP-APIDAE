@@ -82,7 +82,7 @@ Quelques notes sur ce que nous venons de créer :
 
    * Le champ `password` représente le mot de passe `chiffré`. Vous ne devez jamais stocker des mots de passe "en clair" dans votre base de données (sinon c'est la catastrophe en cas de fuite!).
 
-   * Le champ `profilePictureName` représente le nom du fichier contenant la photo de profil. Ce nom sera généré à partir du login (actuel) de l'utilisateur lors de l'upload et transformé avec un algorithme de `hachage` (nous n'utiliserons pas le nom d'origine). Avec cette méthode, si nous changeons le nom de l'utilisateur, nous n'aurons pas à changer le nom de ce fichier.
+   * Le champ `profilePictureName` représente le nom du fichier contenant la photo de profil. Ce nom sera généré à partir du login (actuel) de l'utilisateur lors de l'upload et transformé avec une fonction `uniqid` permettant de créer un identifiant unique (nous n'utiliserons pas le nom d'origine). Avec cette méthode, si nous changeons le nom de l'utilisateur, nous n'aurons pas à changer le nom de ce fichier.
 
 Pour l'instant, vous devrez exclusivement travailler sur votre environnement de **production** (`app.php`) car la base de données `sqlite` utilisée dans l'environnement de **développement** n'est pas encore à jour. Mais pas de panique, nous réglerons ce point un peu plus tard.
 
@@ -238,12 +238,14 @@ Maintenant, il faut créer l'action d'inscription du côté `back-end`!
    composer require symfony/mime
    ```
 
-   Le nouveau nom du fichier sera le login de l'utilisateur sur lequel on aura appliqué un **algorithme de hashage** (dans notre cas `SHA-256`). Pour faire cela, `PHP` nous met à disposition une fonction toute prête :
+   Le nouveau nom du fichier sera un identifiant unique. Pour faire cela, `PHP` nous met à disposition une fonction toute prête :
 
    ```php
-   $exempleNom = "Coucou"
-   $hache = hash('sha256', $exempleNom); //11df1b59ae8a206b9dd1fc76fe629fa48e2f6ecbbf14b12843869af295d8c425
+   //Augmente le caractère unique de la chaîne généré
+   $identifiant = uniqid(null, true)
    ```
+
+   L'unicité de cette valeur se base sur l'horloge système, il ne faut donc pas l'utiliser dans un contexte où on osuhaite générer quelquechose de sécurisé et unique au monde. Dans notre contexte, cela ira très bien.
 
    Nous viendrons alors concatener ce nouveau nom avec l'extension obtenue grâce à `guessExtension`. Il ne faut pas oublier d'ajouter le `.` entre les deux chaînes!
 
@@ -259,7 +261,7 @@ Maintenant, il faut créer l'action d'inscription du côté `back-end`!
 
       2. Injecter ce paramètre dans le service des utilisateurs
 
-      3. Obtenir le nom final de l'image en : obtenant le type de l'image, puis en créant le nom de base de l'image à partir du login en appliquant `sha256`, et enfin, en concatenant les deux.
+      3. Obtenir le nom final de l'image en : créant le nom de base en utilisant `uniqid`, puis en obtenant le type de l'image, et enfin, en concatenant les deux.
 
       4. Déplacer le fichier vers le dossier des images de profils en utilisant le chemin injecté dans le service et le nom de fichier récupéré à l'étape précédente. Le nom de fichier créé à l'étape précédente sera celui stocké dans l'objet `Utilisateur` (et donc en base de données).
 
@@ -328,7 +330,7 @@ Bien, nous avons de quoi envoyer des événements, mais aucun événement à env
 
    Le `nom` correspond à un nom associé à cet événement. Cela permet de réeutiliser un même type (même classe) d'événement mais sous différents noms.
 
-   Dans `AppFrawmork`, au tout début de la méthode `handle` créez un nouvel événement de type `RequestHandlingEvent` en passant la requête traitée en paramètre puis, servez-vous de votre `eventDispatcher` pour diffuser cet événement sous le nom `onRequestHandling`.
+   Dans `AppFramework`, au tout début de la méthode `handle` créez un nouvel événement de type `RequestHandlingEvent` en passant la requête traitée en paramètre puis, servez-vous de votre `eventDispatcher` pour diffuser cet événement sous le nom `onRequestHandling`.
 
 4. Comme toujours, vérifiez que rien n'est cassé.
 
@@ -417,7 +419,7 @@ Nous nous proposons de créer un `manager de session` dont le rôle sera de gér
 
 1. Créez un dossier `Service` dans `external/Framework` puis, à l'intérieur, créez une classe `ServerSessionManager`. Donnez-lui le bon `namespace`.
 
-2. Ajoutez un attirbut `$session` qui ne sera pas initialisé par le constructeur.
+2. Ajoutez un attirbut `$session` de type `Session` qui ne sera pas initialisé par un paramètre passé dans le constructeur.
 
 3. Définissez une méthode `updateSession` qui exécute le code de création (ou récupération) de session tel que présenté plus tôt et stocke le résultat dans votre attribut `$this->session`.
 
@@ -694,7 +696,7 @@ Il ne vous reste plus qu'à mettre à jour le template `feed.html.twig` pour pre
 
 ### Page personnelle
 
-On aimerait que chaque utilisateur dispose d'une page personnelle listant tous les **feedies** qu'il a publié (et visible par tout le monde).
+On aimerait que chaque utilisateur dispose d'une page personnelle (visible par tout le monde) listant tous les **feedies** qu'il a publié.
 
 <div class="exercise">
 
@@ -726,9 +728,9 @@ On aimerait que chaque utilisateur dispose d'une page personnelle listant tous l
 
    Faites en sorte qu'un lien vers la page personnelle de **l'utilisateur courant** (utilisateur connecté géré par la session courante)  soit placé dans le `href` du lien menant vers la page personnelle dans le menu. Pour rappel, l'identifiant de l'utilisateur est accessible via l'objet `session`...!
 
-10. Vérifiez que le lien fonctionne et amène bien sur votre page personnelle. Créez plusieurs comtpes utilisaters et testez.
+10. Vérifiez que le lien fonctionne et amène bien sur votre page personnelle. Créez plusieurs comtpes utilisateurs et testez.
 
-11. Maintenant, on aimerait bien qu'un clic sur l'image de l'utilisateur dans `feed.twig.html` amène vers sa page personnelle. Entourez la balise `<img>` de balises `<a></a>`. Et défnissez un `href` en utilisant la fonction `route` de manière paramétrée...
+11. Maintenant, on aimerait bien qu'un clic sur l'image de l'utilisateur dans `feed.twig.html` amène vers sa page personnelle. Entourez la balise `<img>` de balises `<a>...</a>`. Et défnissez un `href` en utilisant la fonction `route` de manière paramétrée...
 
 </div>
 
@@ -844,17 +846,18 @@ Les messages flash sont rangés par catégories. Le développeur peut spécifier
 //Exemple
 $flashBag = new AttributeBag();
 $flashBag->set('success', []);
-$errorsFlashes = $flashBag->get('success');
-$errorsFlashes[] = "Erreur...!";
-//Important : on sauvegarde le novueau tableau! (car on a obtenu une copie...!)
-$flashBag->set('success', $errorsFlashes);
+$successFlashes = $flashBag->get('success');
+//On ajoute un message au tableau...
+$successFlashes[] = "Inscription réeussie!";
+//Important : on sauvegarde le nouveau tableau! (car on a obtenu une copie...!)
+$flashBag->set('success', $successFlashes);
 ```
 
 <div class="exercise">
 
 1. Dans `ServerSessionManager`, ajoutez une méthode privée `getFlashBag` qui permet de récupérer le flash bag identifié par la clé `flashes` dans `$this->session`. S'il n'existe pas, il faut alors le créer (`new AttributeBag`) et l'associer à la clé `flashes` dans la session.
 
-2. Ajoutez une méthode `addFlash($category, $message)` qui ajoute un message flash dans le tableau correspondant à `$category` dans le `flash bag`. Vous pouvez notamment utilisée la méthode précédente pour récupérer (et éventuellement initialiser) le `flash bag`.
+2. Ajoutez une méthode `addFlash($category, $message)` qui ajoute un message flash dans le tableau correspondant à `$category` dans le `flash bag`. Vous pouvez notamment utiliser la méthode précédente pour récupérer (et éventuellement initialiser) le `flash bag`.
 
 3. Ajoutez une méthode `consumeFlashes($category)` qui renvoie tous les messages du `flash bag` appartenant à `$category` et supprime le tableau du `flash bag` (supprime l'associaiton définie par la clé `$category`). On peut notamment utiliser cette méthode :
 
@@ -967,4 +970,4 @@ Nous approchons de la fin! Notre framework devient de plus en plus complet, et n
 
    * gérer des `événements` pour avoir des pages d'erreurs customisées.
 
-   * mettre en place les bases d'une petite `API REST` et un système d'authentification avec des `JWT` (Json Web Token) couplé avec du `Javascript` afin de rendre notre site plus dynamique.
+   * mettre en place les bases d'une petite `API REST` couplé avec du `Javascript` afin de rendre notre site plus dynamique.
