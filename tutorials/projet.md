@@ -57,7 +57,9 @@ En parallèle, vous devrez utiliser votre framework pour développer **une appli
 
 * Un mini youtube.
 
-Bref, vous êtes totalement libre sur le choix du thème. Veillez juste à ce que cela ne soit aps trop ambitieux à réaliser dans le temps impartit. Il y aura néanmoins trois petites contraintes à respecter :
+Bref, vous êtes totalement libre sur le choix du thème. Veillez juste à ce que cela ne soit aps trop ambitieux à réaliser dans le temps impartit. Il y aura néanmoins quelques petites contraintes à respecter :
+
+* Pas deux fois le même sujet de site entre deux groupes. Vous devrez faire valider votre sujet.
 
 * Au moins **trois tables** dans la **base de données** et qui ont des **relations** (donc au moins trois entités).
 
