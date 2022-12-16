@@ -94,7 +94,7 @@ Nous allons maitnenant créer le `repository` permettant de récupérer et de `m
 
 1. Créez une classe `UtilisateurRepositorySQL`. Vous devriez aussi savoir où la placer! Donnez lui le bon `namespace` et faites là implémenter l'interface `Repository`. 
 
-2. Complétez les méthodes `get`, `create` et `remove`. Vous pourrez éventuellement compléter les autres méthodes plus tard (vous pouvez les laisser vide, nous n'en aurons pas besoin dans le cadre du TP, mais si vous avez un peu de temps, elles ne sont pas très dures à implémenter). Vous pouvez vous inspirer de `PublicationRespository`.
+2. Complétez les méthodes `get`, `create` et `remove`. Vous pourrez éventuellement compléter les autres méthodes plus tard (vous pouvez les laisser vide, nous n'en aurons pas besoin dans le cadre du TP, mais si vous avez un peu de temps, elles ne sont pas très dures à implémenter). Vous pouvez vous inspirer de `PublicationRepository`.
 
 3. Dans votre fichier `ConfigurationGlobal`, enregistrez ce repository en associant l'entité `Utilisateur` à ce dernier.
 
