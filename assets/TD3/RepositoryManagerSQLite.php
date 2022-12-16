@@ -11,7 +11,6 @@ class RepositoryManagerSQLite extends RepositoryManager
 
     public function __construct($dataBaseConfig)
     {
-        $this->repositories = [];
         $fileName = $dataBaseConfig['file'];
         $this->pdo = new PDO("sqlite:$fileName");
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

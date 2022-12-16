@@ -590,7 +590,7 @@ Commençons tout d'abord par créer la classe abstraite `RepositoryManager` qui 
    ```php
    abstract class RepositoryManager {
 
-      protected $respositories = [];
+      protected $repositories = [];
 
       public abstract function registerRepository($entityClass, $repositoryClass);
 
@@ -604,11 +604,11 @@ Commençons tout d'abord par créer la classe abstraite `RepositoryManager` qui 
    }
    ```
 
-   * La méthode `registerRepository` est abstraite et consiste à relier la classe d'une entité (`$entityClass`) à une instance d'un repository. Le repository est instancié à ce moment là, grâce à la classe spécifiée en paramètre (`$repositoryClass`). L'association entre la classe de l'entité et l'instance du repository est stockée dans le tableau `$this->respositories`. Cette méthode dépend de la classe concrète utilisée car les paramètres d'itnitialisation ne seront pas les mêmes selon la nature du repository manager (`$pdo` pour du SQL, un document pour du XML, etc...)
+   * La méthode `registerRepository` est abstraite et consiste à relier la classe d'une entité (`$entityClass`) à une instance d'un repository. Le repository est instancié à ce moment là, grâce à la classe spécifiée en paramètre (`$repositoryClass`). L'association entre la classe de l'entité et l'instance du repository est stockée dans le tableau `$this->repositories`. Cette méthode dépend de la classe concrète utilisée car les paramètres d'itnitialisation ne seront pas les mêmes selon la nature du repository manager (`$pdo` pour du SQL, un document pour du XML, etc...)
 
    * La méthode `registerRepositories` est très simple. Elle prend en paramètre un tableau associatif `$repositoriesData` qui contient des associations entre des classes d'entités et des classes de repositories. Il suffit alors de parcourir le tableau avec un `foreach` pour enregistrer l'association avec `registerRepository`.
 
-   * La méthode `getRepository` renvoie simplement l'instance de `repository` correpondant à la classe `$entityClass` passée en paramètre. Il suffit alors de lire dans le tableau associatif `$this->respositories`.
+   * La méthode `getRepository` renvoie simplement l'instance de `repository` correpondant à la classe `$entityClass` passée en paramètre. Il suffit alors de lire dans le tableau associatif `$this->repositories`.
 
 3. Implémentez les méthodes `registerRepositories` et `getRepository`. Pour rappel, on peut accèder à la clé et la valeur associée quand on parcourt un tableau associatif avec un `foreach` :
 
