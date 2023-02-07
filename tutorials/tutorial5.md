@@ -542,7 +542,7 @@ Nous allons donc tester notre toute nouvelle route grâce à ce logicel!
 2. Sur l'interface, créez un nouvel onglet et paramétrez-le ainsi :
 
     <p style="text-align:center">
-    ![Postman config 1]({{site.baseurl}}/assets/TD5/postman1.png)
+    ![Postman config 1]({{site.baseurl}}/assets/TD5/postman1.PNG)
     </p>
 
     * Méthode `POST`
@@ -570,7 +570,7 @@ Nous allons donc tester notre toute nouvelle route grâce à ce logicel!
 5. Sur **postman**, cliquez sur la section **Headers** de l'onglet. Ajoutez une nouvelle clé `Cookie` puis, comme valeur, collez la valeur que vous avez récupérez à la question précédente. Il s'agit de votre identifiant de session.
 
     <p style="text-align:center">
-    ![Postman config 1]({{site.baseurl}}/assets/TD5/postman2.png)
+    ![Postman config 2]({{site.baseurl}}/assets/TD5/postman2.PNG)
     </p>
 
 6. Tentez d'envoyer la requête à nouveau, le serveur devrait alors vous renvoyer la représentation `JSON` de votre nouveau **feedy**! Vous pouvez aussi directement aller consulter son ajout sur le site web.
